@@ -1,0 +1,43 @@
+{
+    "name": "smartilabs/php-tempo-rest-client",
+    "description": "TEMPO Jira time tracking software REST API client for PHP users",
+    "type": "library",
+    "keywords": [
+        "tempo",
+        "jira",
+        "rest",
+        "tempo-php",
+        "tempo-rest",
+        "jira-tempo-php",
+        "jira-tempo-rest",
+        "time-tracking"
+    ],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Bostjan Bogataj, Smartilabs",
+            "email": "bostjan@smartilabs.si",
+            "homepage": "http://smartilabs.si"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "league/oauth2-client": "^2.4",
+        "vlucas/phpdotenv": "^3.3",
+        "monolog/monolog": "^1.24",
+        "ext-curl": "^7.3",
+        "netresearch/jsonmapper": "^1.4",
+        "ext-json": "^1.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "TempoRestApi\\": "src"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.1"
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
