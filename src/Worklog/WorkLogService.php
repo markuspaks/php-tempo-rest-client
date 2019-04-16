@@ -32,23 +32,15 @@ class WorkLogService extends TempoClient
     }
 
     /**
-     * @param string|null $from
-     * @param string|null $to
-     * @param string|null $updatedFrom
-     * @param int $offset
-     * @param int $limit
+     * @param WorkLogParameters $parameters
+     *
      * @return object
+     * @throws TempoException
      * @throws \League\OAuth2\Client\Provider\Exception\IdentityProviderException
-     * @throws \TempoRestApi\TempoException
      */
-    public function getList(
-        string $from = null,
-        string $to = null,
-        string $updatedFrom = null,
-        int $offset = 0,
-        int $limit = 50
-    ) {
-        $url = $this->tempoApiUrl . "worklogs?updatedFrom={$updatedFrom}";
+    public function getList(WorkLogParameters $parameters)
+    {
+        $url = $this->tempoApiUrl . "worklogs?" . $parameters->getHttpQuery();
 
         return $this->request($url);
     }
