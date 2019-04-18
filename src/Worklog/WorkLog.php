@@ -23,7 +23,7 @@ class WorkLog implements \JsonSerializable, DataModel
     /** @var int */
     public $timeSpentSeconds;
 
-    /** @var string */
+    /** @var \DateTime */
     public $startDate;
 
     /** @var string */
@@ -32,10 +32,10 @@ class WorkLog implements \JsonSerializable, DataModel
     /** @var string */
     public $description;
 
-    /** @var string */
+    /** @var \DateTime */
     public $createdAt;
 
-    /** @var string */
+    /** @var \DateTime */
     public $updatedAt;
 
     /** @var \TempoRestApi\Jira\Author */
