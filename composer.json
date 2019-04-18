@@ -23,7 +23,7 @@
     "require": {
         "php": "^7.2",
         "league/oauth2-client": "^2.4",
-        "vlucas/phpdotenv": "^3.3",
+        "vlucas/phpdotenv": "~1.0|~2.0|^3.0",
         "monolog/monolog": "^1.24",
         "ext-curl": "^7.3",
         "netresearch/jsonmapper": "^1.4",
