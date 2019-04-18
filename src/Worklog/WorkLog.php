@@ -2,7 +2,9 @@
 
 namespace TempoRestApi\WorkLog;
 
-class WorkLog implements \JsonSerializable
+use TempoRestApi\DataModel;
+
+class WorkLog implements \JsonSerializable, DataModel
 {
     /**
      * @var string

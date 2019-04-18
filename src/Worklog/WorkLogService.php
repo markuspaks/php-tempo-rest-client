@@ -34,20 +34,29 @@ class WorkLogService extends TempoClient
     /**
      * @param WorkLogParameters $parameters
      *
-     * @return object
+     * @return WorkLogResultSet|WorkLog[]
      * @throws TempoException
      * @throws \League\OAuth2\Client\Provider\Exception\IdentityProviderException
+     * @throws \JsonMapper_Exception
      */
-    public function getList(WorkLogParameters $parameters)
+    public function getList(WorkLogParameters $parameters): WorkLogResultSet
     {
         $url = $this->tempoApiUrl . "worklogs?" . $parameters->getHttpQuery();
 
-        return $this->request($url);
+        $result = $this->request($url);
+
+        $workLogs = new WorkLogResultSet();
+
+        foreach ($result->results as $item) {
+            $workLogs[] = $this->getWorkLogFromJson($item);
+        }
+
+        return $workLogs;
     }
 
     /**
      * @param object $json
-     * @return WorkLog
+     * @return WorkLog|object
      * @throws \JsonMapper_Exception
      */
     protected function getWorkLogFromJson(object $json): WorkLog

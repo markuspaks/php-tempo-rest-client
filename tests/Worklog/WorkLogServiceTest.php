@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 use TempoRestApi\WorkLog\WorkLogService;
+use TempoRestApi\WorkLog\WorkLogResultSet;
 
 final class WorkLogServiceTest extends TestCase
 {
@@ -55,5 +56,48 @@ final class WorkLogServiceTest extends TestCase
         } catch (Exception $e) {
             $this->assertTrue(false, $e->getMessage());
         }
+    }
+
+    public function testGetList(): void
+    {
+        try {
+            $list = self::$workLogService->getList(
+                (new \TempoRestApi\WorkLog\WorkLogParameters())
+                    ->setLimit(1)
+            );
+
+            $this->assertInstanceOf(
+                WorkLogResultSet::class,
+                $list
+            );
+        } catch (Exception $e) {
+            $this->assertTrue(false, $e->getMessage());
+        }
+    }
+
+    public function testWorkLogResultSetValid()
+    {
+        $resultSet = new WorkLogResultSet();
+
+        $workLog = new \TempoRestApi\WorkLog\WorkLog();
+
+        $resultSet[] = $workLog;
+
+        $this->assertCount(1, $resultSet);
+        $this->assertEquals($workLog, $resultSet[0]);
+        $this->assertEquals($workLog, $resultSet->current());
+
+        foreach ($resultSet as $item) {
+            $this->assertEquals($workLog, $item);
+        }
+    }
+
+    public function testWorkLogResultSetInvalid()
+    {
+        $this->expectException(\TempoRestApi\InvalidArgumentException::class);
+
+        $resultSet = new WorkLogResultSet();
+
+        $resultSet[] = 1;
     }
 }

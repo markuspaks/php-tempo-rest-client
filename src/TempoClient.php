@@ -311,13 +311,4 @@ class TempoClient
             throw new TempoException($e->getMessage());
         }
     }
-
-
-    /**
-     * @return string
-     */
-    public function test()
-    {
-        return 'test';
-    }
 }
