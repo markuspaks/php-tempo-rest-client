@@ -12,6 +12,9 @@ class Issue implements \JsonSerializable
     /** @var string */
     public $key;
 
+    /** @var int */
+    public $id;
+
     public function jsonSerialize()
     {
         return array_filter(get_object_vars($this));

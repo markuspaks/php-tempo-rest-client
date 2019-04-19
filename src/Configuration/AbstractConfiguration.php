@@ -12,63 +12,63 @@ abstract class AbstractConfiguration implements ConfigurationInterface
      *
      * @var string
      */
-    protected $tempoAuthType;
+    protected $tempoAuthType = 'token';
 
     /**
      * Authorization token
      *
      * @var string
      */
-    protected $tempoToken;
+    protected $tempoToken = '';
 
     /**
      * Tempo ClientId
      *
      * @var string
      */
-    protected $tempoClientId;
+    protected $tempoClientId = '';
 
     /**
      * Tempo ClientSecret
      *
      * @var string
      */
-    protected $tempoClientSecret;
+    protected $tempoClientSecret = '';
 
     /**
      * Tempo Redirect URI
      *
      * @var string
      */
-    protected $redirectUri;
+    protected $redirectUri = '';
 
     /**
      * Tempo Url Authorize
      *
      * @var string
      */
-    protected $urlAuthorize;
+    protected $urlAuthorize = '';
 
     /**
      * Tempo Url AccessToken
      *
      * @var string
      */
-    protected $urlAccessToken;
+    protected $urlAccessToken = '';
 
     /**
      * Tempo Url ResourceOwnerDetails
      *
      * @var string
      */
-    protected $urlResourceOwnerDetails;
+    protected $urlResourceOwnerDetails = '';
 
     /**
      * Path to log file.
      *
      * @var string
      */
-    protected $tempoLogEnabled;
+    protected $tempoLogEnabled = true;
 
     /**
      * Path to log file.

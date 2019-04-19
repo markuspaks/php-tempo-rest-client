@@ -23,6 +23,9 @@ class WorkLog implements \JsonSerializable, DataModel
     /** @var int */
     public $timeSpentSeconds;
 
+    /** @var int */
+    public $billableSeconds;
+
     /** @var \DateTime */
     public $startDate;
 

@@ -12,6 +12,8 @@ class ArrayConfiguration extends AbstractConfiguration
      */
     public function __construct(array $configuration)
     {
+        $this->tempoAuthType = 'token';
+        $this->tempoToken = '';
         $this->tempoLogEnabled = true;
         $this->tempoLogFile = 'tempo-rest-client.log';
         $this->tempoLogLevel = 'WARNING';
