@@ -21,7 +21,7 @@ class TempoClient
      *
      * @var \JsonMapper
      */
-    protected $jsonMapper;
+    public $jsonMapper;
 
     /**
      * HTTP response code.

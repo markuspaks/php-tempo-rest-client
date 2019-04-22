@@ -15,11 +15,22 @@ class ResultSet implements \ArrayAccess, \Iterator, \Countable
     protected $strictType;
 
     /**
+     * @var ListMetaData
+     */
+    protected $metaData;
+
+    /**
+     * @var TempoClient
+     */
+    protected $tempoClient;
+
+    /**
      * ResultSet constructor.
+     * @param TempoClient $tempoClient
      * @param string $strictType
      * @throws InvalidInstanceException
      */
-    public function __construct(string $strictType)
+    public function __construct(TempoClient $tempoClient, string $strictType)
     {
         try {
             $class = new \ReflectionClass($strictType);
@@ -32,6 +43,7 @@ class ResultSet implements \ArrayAccess, \Iterator, \Countable
         }
 
         $this->strictType = $strictType;
+        $this->tempoClient = $tempoClient;
     }
 
     /**
@@ -145,5 +157,83 @@ class ResultSet implements \ArrayAccess, \Iterator, \Countable
     public function count()
     {
         return count($this->items);
+    }
+
+    /**
+     * @param object $json
+     * @return ResultSet
+     * @throws \JsonMapper_Exception
+     */
+    public function setMetaData(object $json): self
+    {
+        $this->metaData = $this->tempoClient->jsonMapper->map(
+            $json, new ListMetaData()
+        );
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasMore(): bool
+    {
+        return $this->metaData && $this->metaData->next;
+    }
+
+    /**
+     * @param object $json
+     * @return DataModel
+     * @throws \JsonMapper_Exception
+     */
+    public function mapJson(object $json): DataModel
+    {
+        return $this->tempoClient->jsonMapper->map(
+            $json, new $this->strictType()
+        );
+    }
+
+    /**
+     * @param bool $clearExisting
+     * @return bool
+     * @throws TempoException
+     * @throws \League\OAuth2\Client\Provider\Exception\IdentityProviderException
+     */
+    public function fetchNext(bool $clearExisting = true)
+    {
+        $next = $this->metaData ? $this->metaData->next : false;
+
+        if (!$next) {
+            return false;
+        }
+
+        if ($clearExisting) {
+            $this->items = [];
+        }
+
+        $this->request($next);
+
+        return true;
+    }
+
+    /**
+     * @param string $url
+     * @return $this
+     * @throws TempoException
+     * @throws \League\OAuth2\Client\Provider\Exception\IdentityProviderException
+     */
+    public function request(string $url): ResultSet
+    {
+        $result = $this->tempoClient->request($url);
+
+        if ($result->metadata) {
+            $this->setMetaData($result->metadata);
+        }
+
+        foreach ($result->results as $item) {
+            $this[] = $this->mapJson($item);
+        }
+
+        return $this;
     }
 }

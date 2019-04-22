@@ -5,6 +5,10 @@ namespace TempoRestApi\WorkLog;
 use TempoRestApi\TempoClient;
 use TempoRestApi\TempoException;
 
+/**
+ * Class WorkLogService
+ * @package TempoRestApi\WorkLog
+ */
 class WorkLogService extends TempoClient
 {
     /**
@@ -41,17 +45,11 @@ class WorkLogService extends TempoClient
      */
     public function getList(WorkLogParameters $parameters): WorkLogResultSet
     {
+        $workLogs = new WorkLogResultSet($this);
+
         $url = $this->tempoApiUrl . "worklogs?" . $parameters->getHttpQuery();
 
-        $result = $this->request($url);
-
-        $workLogs = new WorkLogResultSet();
-
-        foreach ($result->results as $item) {
-            $workLogs[] = $this->getWorkLogFromJson($item);
-        }
-
-        return $workLogs;
+        return $workLogs->request($url);
     }
 
     /**
