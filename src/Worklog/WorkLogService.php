@@ -36,20 +36,36 @@ class WorkLogService extends TempoClient
     }
 
     /**
-     * @param WorkLogParameters $parameters
-     *
-     * @return WorkLogResultSet|WorkLog[]
+     * @param WorkLogListParameters $parameters
+     * @return WorkLogResultSet
      * @throws TempoException
-     * @throws \League\OAuth2\Client\Provider\Exception\IdentityProviderException
      * @throws \JsonMapper_Exception
+     * @throws \League\OAuth2\Client\Provider\Exception\IdentityProviderException
+     * @throws \TempoRestApi\InvalidInstanceException
      */
-    public function getList(WorkLogParameters $parameters): WorkLogResultSet
+    public function getList(WorkLogListParameters $parameters): WorkLogResultSet
     {
         $workLogs = new WorkLogResultSet($this);
 
         $url = $this->tempoApiUrl . "worklogs?" . $parameters->getHttpQuery();
 
         return $workLogs->request($url);
+    }
+
+    /**
+     * @param WorkLogCreateParameters $parameters
+     * @return WorkLog
+     * @throws TempoException
+     * @throws \JsonMapper_Exception
+     * @throws \League\OAuth2\Client\Provider\Exception\IdentityProviderException
+     */
+    public function create(WorkLogCreateParameters $parameters): WorkLog
+    {
+        $url = $this->tempoApiUrl . "worklogs";
+
+        $result = $this->request($url, $parameters->getPostParams(), 'POST');
+
+        return $this->getWorkLogFromJson($result);
     }
 
     /**

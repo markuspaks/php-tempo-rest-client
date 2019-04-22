@@ -4,7 +4,7 @@ namespace TempoRestApi\WorkLog;
 
 use TempoRestApi\ParametersInterface;
 
-class WorkLogParameters implements ParametersInterface
+class WorkLogListParameters implements ParametersInterface
 {
     /**
      * @var array
@@ -53,9 +53,9 @@ class WorkLogParameters implements ParametersInterface
      * Issues may be specified by either issue ids or issue keys.
      *
      * @param array $issues
-     * @return WorkLogParameters
+     * @return WorkLogListParameters
      */
-    public function setIssues(array $issues): WorkLogParameters
+    public function setIssues(array $issues): WorkLogListParameters
     {
         foreach ($issues as $issue) {
             $this->issues[] = (string)$issue;
@@ -68,9 +68,9 @@ class WorkLogParameters implements ParametersInterface
      * Issue may be specified by either issue ids or issue keys.
      *
      * @param string $issue
-     * @return WorkLogParameters
+     * @return WorkLogListParameters
      */
-    public function setIssue(string $issue): WorkLogParameters
+    public function setIssue(string $issue): WorkLogListParameters
     {
         $this->issues[] = $issue;
         return $this;
@@ -88,9 +88,9 @@ class WorkLogParameters implements ParametersInterface
      * Projects may be specified by either project ids or project keys
      *
      * @param array $projects
-     * @return WorkLogParameters
+     * @return WorkLogListParameters
      */
-    public function setProjects(array $projects): WorkLogParameters
+    public function setProjects(array $projects): WorkLogListParameters
     {
         foreach ($projects as $project) {
             $this->projects[] = (string)$project;
@@ -103,9 +103,9 @@ class WorkLogParameters implements ParametersInterface
      * Projects may be specified by either project ids or project keys
      *
      * @param string $project
-     * @return WorkLogParameters
+     * @return WorkLogListParameters
      */
-    public function setProject(string $project): WorkLogParameters
+    public function setProject(string $project): WorkLogListParameters
     {
         $this->projects[] = $project;
         return $this;
@@ -124,9 +124,9 @@ class WorkLogParameters implements ParametersInterface
      *
      * @param \DateTime $from
      * @param \DateTime $to
-     * @return WorkLogParameters
+     * @return WorkLogListParameters
      */
-    public function setRange(\DateTime $from, \DateTime $to): WorkLogParameters
+    public function setRange(\DateTime $from, \DateTime $to): WorkLogListParameters
     {
         $this->from = $from;
         $this->to = $to;
@@ -152,9 +152,9 @@ class WorkLogParameters implements ParametersInterface
 
     /**
      * @param \DateTime $updatedFrom
-     * @return WorkLogParameters
+     * @return WorkLogListParameters
      */
-    public function setUpdatedFrom(\DateTime $updatedFrom): WorkLogParameters
+    public function setUpdatedFrom(\DateTime $updatedFrom): WorkLogListParameters
     {
         $this->updatedFrom = $updatedFrom;
         return $this;
@@ -172,9 +172,9 @@ class WorkLogParameters implements ParametersInterface
      * Skip over a number of elements by specifying an offset value for the query
      *
      * @param int $offset
-     * @return WorkLogParameters
+     * @return WorkLogListParameters
      */
-    public function setOffset(int $offset): WorkLogParameters
+    public function setOffset(int $offset): WorkLogListParameters
     {
         $this->offset = $offset;
         return $this;
@@ -193,9 +193,9 @@ class WorkLogParameters implements ParametersInterface
      * Maximum: 1000, Default: 50
      *
      * @param int $limit
-     * @return WorkLogParameters
+     * @return WorkLogListParameters
      */
-    public function setLimit(int $limit): WorkLogParameters
+    public function setLimit(int $limit): WorkLogListParameters
     {
         $this->limit = ($limit > 1000 || $limit < 0) ? 50 : $limit;
 
@@ -235,4 +235,14 @@ class WorkLogParameters implements ParametersInterface
 
         return http_build_query($params);
     }
+
+    /**
+     * @return array
+     */
+    public function getPostParams(): array
+    {
+        return [];
+    }
+
+
 }

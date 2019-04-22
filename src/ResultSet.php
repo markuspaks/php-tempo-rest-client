@@ -197,6 +197,7 @@ class ResultSet implements \ArrayAccess, \Iterator, \Countable
      * @param bool $clearExisting
      * @return bool
      * @throws TempoException
+     * @throws \JsonMapper_Exception
      * @throws \League\OAuth2\Client\Provider\Exception\IdentityProviderException
      */
     public function fetchNext(bool $clearExisting = true)
@@ -218,8 +219,9 @@ class ResultSet implements \ArrayAccess, \Iterator, \Countable
 
     /**
      * @param string $url
-     * @return $this
+     * @return ResultSet
      * @throws TempoException
+     * @throws \JsonMapper_Exception
      * @throws \League\OAuth2\Client\Provider\Exception\IdentityProviderException
      */
     public function request(string $url): ResultSet

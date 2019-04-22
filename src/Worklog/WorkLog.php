@@ -51,4 +51,37 @@ class WorkLog implements \JsonSerializable, DataModel
     {
         return array_filter(get_object_vars($this));
     }
+
+    /**
+     * @return string
+     */
+    public function getHttpQuery(): string
+    {
+        $params = [];
+
+        if (!empty($this->issues)) {
+            $params['issue'] = $this->issues;
+        }
+
+        if (!empty($this->projects)) {
+            $params['project'] = $this->projects;
+        }
+
+        if (!empty($this->from)) {
+            $params['from'] = $this->from->format('Y-m-d');
+        }
+
+        if (!empty($this->to)) {
+            $params['to'] = $this->to->format('Y-m-d');
+        }
+
+        if (!empty($this->updatedFrom)) {
+            $params['updatedFrom'] = $this->updatedFrom->format('Y-m-d');
+        }
+
+        $params['offset'] = $this->offset;
+        $params['limit'] = $this->limit;
+
+        return http_build_query($params);
+    }
 }

@@ -277,11 +277,12 @@ class TempoClient
     /**
      * @param string $url
      * @param array $params
+     * @param string $method
      * @return object
      * @throws TempoException
      * @throws \League\OAuth2\Client\Provider\Exception\IdentityProviderException
      */
-    public function request(string $url, array $params = [])
+    public function request(string $url, array $params = [], string $method = 'GET')
     {
         $provider = $this->getProvider();
 
@@ -293,10 +294,14 @@ class TempoClient
 
         try {
             $request = $provider->getAuthenticatedRequest(
-                'GET',
+                $method,
                 $url,
                 $accessToken
             );
+
+            if ($params) {
+                $request->getBody()->write(json_encode($params));
+            }
 
             $response = $provider->getResponse($request)->getBody()->getContents();
 

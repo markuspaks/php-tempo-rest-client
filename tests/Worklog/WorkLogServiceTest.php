@@ -62,7 +62,7 @@ final class WorkLogServiceTest extends TestCase
     {
         try {
             $list = self::$workLogService->getList(
-                (new \TempoRestApi\WorkLog\WorkLogParameters())
+                (new \TempoRestApi\WorkLog\WorkLogListParameters())
                     ->setLimit(1)
             );
 
@@ -70,6 +70,10 @@ final class WorkLogServiceTest extends TestCase
                 WorkLogResultSet::class,
                 $list
             );
+
+            $list->fetchNext(false);
+
+            $this->assertCount(2, $list);
         } catch (Exception $e) {
             $this->assertTrue(false, $e->getMessage());
         }
@@ -77,7 +81,7 @@ final class WorkLogServiceTest extends TestCase
 
     public function testWorkLogResultSetValid()
     {
-        $resultSet = new WorkLogResultSet();
+        $resultSet = new WorkLogResultSet(self::$workLogService);
 
         $workLog = new \TempoRestApi\WorkLog\WorkLog();
 
@@ -96,8 +100,9 @@ final class WorkLogServiceTest extends TestCase
     {
         $this->expectException(\TempoRestApi\InvalidArgumentException::class);
 
-        $resultSet = new WorkLogResultSet();
+        $resultSet = new WorkLogResultSet(self::$workLogService);
 
+        // don't allow adding non-worklog objects
         $resultSet[] = 1;
     }
 }
