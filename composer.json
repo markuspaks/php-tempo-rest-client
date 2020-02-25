@@ -21,13 +21,13 @@
         }
     ],
     "require": {
-        "php": "^7.2",
+        "php": "^7.3",
         "league/oauth2-client": "^2.4",
         "vlucas/phpdotenv": "~1.0|~2.0|^3.0",
         "monolog/monolog": "^1.24",
         "ext-curl": "^7.3",
         "netresearch/jsonmapper": "^1.4",
-        "ext-json": "^1.7"
+        "ext-json": "^7.3."
     },
     "autoload": {
         "psr-4": {
