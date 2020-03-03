@@ -1,5 +1,5 @@
 {
-    "name": "smartilabs/php-tempo-rest-client",
+    "name": "markuspaks/php-tempo-rest-client",
     "description": "TEMPO Jira time tracking software REST API client for PHP users",
     "type": "library",
     "keywords": [
@@ -24,7 +24,7 @@
         "php": "^7.3",
         "league/oauth2-client": "^2.4",
         "vlucas/phpdotenv": "~1.0|~2.0|^3.0",
-        "monolog/monolog": "^1.24",
+        "monolog/monolog": "^2.0",
         "ext-curl": "^7.3",
         "netresearch/jsonmapper": "^1.4",
         "ext-json": "^7.3."
