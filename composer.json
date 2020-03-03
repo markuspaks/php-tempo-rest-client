@@ -27,7 +27,7 @@
         "monolog/monolog": "^2.0",
         "ext-curl": "^7.3",
         "netresearch/jsonmapper": "^1.4",
-        "ext-json": "^7.3."
+        "ext-json": "*"
     },
     "autoload": {
         "psr-4": {
