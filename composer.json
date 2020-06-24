@@ -26,7 +26,6 @@
         "vlucas/phpdotenv": "~1.0|~2.0|^3.0",
         "monolog/monolog": "^2.0",
         "ext-curl": "^7.3",
-        "netresearch/jsonmapper": "^1.4",
         "ext-json": "*"
     },
     "autoload": {
