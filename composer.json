@@ -1,5 +1,5 @@
 {
-    "name": "markuspaks/php-tempo-rest-client",
+    "name": "cesardmoro/php-tempo-rest-client",
     "description": "TEMPO Jira time tracking software REST API client for PHP users",
     "type": "library",
     "keywords": [
