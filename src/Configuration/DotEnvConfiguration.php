@@ -1,6 +1,6 @@
 <?php
 
-namespace Tempo\Configuration;
+namespace TempoRestApi\Configuration;
 
 use Dotenv\Dotenv;
 

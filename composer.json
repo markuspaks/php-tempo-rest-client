@@ -31,7 +31,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Tempo": "src"
+            "TempoRestApi\\": "src"
         }
     },
     "require-dev": {

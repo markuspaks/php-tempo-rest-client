@@ -1,6 +1,6 @@
 <?php
 
-namespace Tempo;
+namespace TempoRestApi;
 
 use Monolog\Handler\AbstractProcessingHandler;
 

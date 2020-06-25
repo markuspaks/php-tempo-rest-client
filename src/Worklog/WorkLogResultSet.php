@@ -1,9 +1,9 @@
 <?php
 
-namespace Tempo\WorkLog;
+namespace TempoRestApi\WorkLog;
 
-use Tempo\ResultSet;
-use Tempo\TempoClient;
+use TempoRestApi\ResultSet;
+use TempoRestApi\TempoClient;
 
 /**
  * Class WorkLogResultSet
@@ -16,7 +16,7 @@ class WorkLogResultSet extends ResultSet
     /**
      * WorkLogResultSet constructor.
      * @param TempoClient $tempoClient
-     * @throws \Tempo\InvalidInstanceException
+     * @throws \TempoRestApi\InvalidInstanceException
      */
     public function __construct(TempoClient $tempoClient)
     {

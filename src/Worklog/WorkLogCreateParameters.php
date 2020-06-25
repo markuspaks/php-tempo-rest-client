@@ -1,9 +1,9 @@
 <?php
 
-namespace Tempo\WorkLog;
+namespace TempoRestApi\WorkLog;
 
-use Tempo\ParametersInterface;
-use Tempo\TempoException;
+use TempoRestApi\ParametersInterface;
+use TempoRestApi\TempoException;
 
 class WorkLogCreateParameters implements ParametersInterface
 {

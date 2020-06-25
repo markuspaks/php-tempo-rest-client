@@ -1,6 +1,6 @@
 <?php
 
-namespace Tempo;
+namespace TempoRestApi;
 
 /**
  * Interface DataModel
