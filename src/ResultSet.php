@@ -1,6 +1,6 @@
 <?php
 
-namespace TempoRestApi;
+namespace Tempo;
 
 class ResultSet implements \ArrayAccess, \Iterator, \Countable
 {

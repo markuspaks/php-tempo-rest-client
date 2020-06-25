@@ -1,8 +1,8 @@
 <?php
 
-namespace TempoRestApi\WorkLog;
+namespace Tempo\WorkLog;
 
-use TempoRestApi\ParametersInterface;
+use Tempo\ParametersInterface;
 
 class WorkLogListParameters implements ParametersInterface
 {

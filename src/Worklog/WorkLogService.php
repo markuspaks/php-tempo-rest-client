@@ -1,13 +1,13 @@
 <?php
 
-namespace TempoRestApi\WorkLog;
+namespace Tempo\WorkLog;
 
-use TempoRestApi\TempoClient;
-use TempoRestApi\TempoException;
+use Tempo\TempoClient;
+use Tempo\TempoException;
 
 /**
  * Class WorkLogService
- * @package TempoRestApi\WorkLog
+ * @package TempoRest\WorkLog
  */
 class WorkLogService extends TempoClient
 {
@@ -41,7 +41,7 @@ class WorkLogService extends TempoClient
      * @throws TempoException
      * @throws \JsonMapper_Exception
      * @throws \League\OAuth2\Client\Provider\Exception\IdentityProviderException
-     * @throws \TempoRestApi\InvalidInstanceException
+     * @throws \Tempo\InvalidInstanceException
      */
     public function getList(WorkLogListParameters $parameters): WorkLogResultSet
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace TempoRestApi\Configuration;
+namespace Tempo\Configuration;
 
 /**
  * Class ArrayConfiguration.

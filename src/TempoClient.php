@@ -1,15 +1,15 @@
 <?php
 
-namespace TempoRestApi;
+namespace Tempo;
 
 use GuzzleHttp\Exception\ClientException;
 use League\OAuth2\Client\Provider\GenericProvider;
 use League\OAuth2\Client\Token\AccessToken;
-use TempoRestApi\Configuration\ConfigurationInterface;
+use Tempo\Configuration\ConfigurationInterface;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Psr\Log\LoggerInterface;
-use TempoRestApi\Configuration\DotEnvConfiguration;
+use Tempo\Configuration\DotEnvConfiguration;
 
 /**
  * Interact jira server with REST API.

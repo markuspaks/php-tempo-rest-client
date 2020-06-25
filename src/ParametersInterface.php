@@ -1,6 +1,6 @@
 <?php
 
-namespace TempoRestApi;
+namespace Tempo;
 
 interface ParametersInterface
 {

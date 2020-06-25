@@ -1,12 +1,12 @@
 <?php
 
-namespace TempoRestApi;
+namespace Tempo;
 
 /**
  * MetaData from every listing request
  *
  * Class ListMetaData
- * @package TempoRestApi\WorkLog
+ * @package TempoRest\WorkLog
  */
 class ListMetaData implements \JsonSerializable, DataModel
 {

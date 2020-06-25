@@ -1,10 +1,10 @@
 <?php
 
-namespace TempoRestApi\WorkLog;
+namespace Tempo\WorkLog;
 
-use TempoRestApi\DataModel;
 
-class WorkLog implements \JsonSerializable, DataModel
+
+class WorkLog implements JsonSerializable, DataModel
 {
     /**
      * @var string
@@ -17,7 +17,7 @@ class WorkLog implements \JsonSerializable, DataModel
     /** @var int */
     public $jiraWorklogId;
 
-    /** @var \TempoRestApi\Jira\Issue */
+    /** @var Issue */
     public $issue;
 
     /** @var int */
@@ -26,7 +26,7 @@ class WorkLog implements \JsonSerializable, DataModel
     /** @var int */
     public $billableSeconds;
 
-    /** @var \DateTime */
+    /** @var DateTime */
     public $startDate;
 
     /** @var string */
@@ -35,13 +35,13 @@ class WorkLog implements \JsonSerializable, DataModel
     /** @var string */
     public $description;
 
-    /** @var \DateTime */
+    /** @var DateTime */
     public $createdAt;
 
-    /** @var \DateTime */
+    /** @var DateTime */
     public $updatedAt;
 
-    /** @var \TempoRestApi\Jira\Author */
+    /** @var Author */
     public $author;
 
     /** @var array */

@@ -1,6 +1,6 @@
 <?php
 
-namespace TempoRestApi\Jira;
+namespace Tempo\Jira;
 
 class Author implements \JsonSerializable
 {

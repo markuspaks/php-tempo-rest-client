@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use TempoRestApi\TempoClient;
+use Tempo\TempoClient;
 
 final class TempoClientTest extends TestCase
 {
