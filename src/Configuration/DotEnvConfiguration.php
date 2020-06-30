@@ -123,8 +123,8 @@ class DotEnvConfiguration extends AbstractConfiguration
      */
     private function loadDotEnv(string $path)
     {
-        $dotEnv = Dotenv::create($path);
-        $dotEnv->load();
+        $dotEnv = \Dotenv\Dotenv::createImmutable($path);
+        $dotEnv->safeLoad();
         $dotEnv->required('TEMPO_AUTH_TYPE');
 
         if (getenv('TEMPO_AUTH_TYPE') === 'token') {
