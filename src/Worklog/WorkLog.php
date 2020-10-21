@@ -14,7 +14,7 @@ class WorkLog implements \JsonSerializable, DataModel
     /** @var int */
     public $tempoWorklogId;
 
-    /** @var int */
+    /** @var int | null*/
     public $jiraWorklogId;
 
     /** @var \TempoRestApi\Jira\Issue */
