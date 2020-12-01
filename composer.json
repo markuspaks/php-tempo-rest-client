@@ -20,14 +20,18 @@
             "homepage": "http://smartilabs.si"
         }
     ],
-    "require": {
+   "require": {
         "php": "^7.3",
         "league/oauth2-client": "^2.4",
         "vlucas/phpdotenv": "^4.0",
         "monolog/monolog": "^2.0",
         "ext-curl": "^7.3",
         "ext-json": "*",
+<<<<<<< HEAD
          "netresearch/jsonmapper": "^2.0"
+=======
+        "netresearch/jsonmapper": "^2.0"
+>>>>>>> 1b42481c5f692db73a5546de6b6f44b22c04abee
     },
     "autoload": {
         "psr-4": {

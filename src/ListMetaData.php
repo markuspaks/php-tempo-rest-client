@@ -6,7 +6,7 @@ namespace TempoRestApi;
  * MetaData from every listing request
  *
  * Class ListMetaData
- * @package TempoRestApi\WorkLog
+ * @package TempoRestApi\Worklog
  */
 class ListMetaData implements \JsonSerializable, DataModel
 {
