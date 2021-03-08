@@ -1,13 +1,13 @@
 <?php
 
-namespace TempoRestApi\WorkLog;
+namespace TempoRestApi\Worklog;
 
 use TempoRestApi\ResultSet;
 use TempoRestApi\TempoClient;
 
 /**
  * Class WorkLogResultSet
- * @package TempoRestApi\WorkLog
+ * @package TempoRestApi\Worklog
  *
  * @method WorkLogResultSet request(string $url)
  */

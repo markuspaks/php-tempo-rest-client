@@ -2,8 +2,8 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use TempoRestApi\WorkLog\WorkLogService;
-use TempoRestApi\WorkLog\WorkLogResultSet;
+use TempoRestApi\Worklog\WorkLogService;
+use TempoRestApi\Worklog\WorkLogResultSet;
 
 final class WorkLogServiceTest extends TestCase
 {
@@ -38,7 +38,7 @@ final class WorkLogServiceTest extends TestCase
             $workLog = self::$workLogService->get($workLogId);
 
             $this->assertInstanceOf(
-                \TempoRestApi\WorkLog\WorkLog::class,
+                \TempoRestApi\Worklog\WorkLog::class,
                 $workLog
             );
 
@@ -62,7 +62,7 @@ final class WorkLogServiceTest extends TestCase
     {
         try {
             $list = self::$workLogService->getList(
-                (new \TempoRestApi\WorkLog\WorkLogListParameters())
+                (new \TempoRestApi\Worklog\WorkLogListParameters())
                     ->setLimit(1)
             );
 
@@ -83,7 +83,7 @@ final class WorkLogServiceTest extends TestCase
     {
         $resultSet = new WorkLogResultSet(self::$workLogService);
 
-        $workLog = new \TempoRestApi\WorkLog\WorkLog();
+        $workLog = new \TempoRestApi\Worklog\WorkLog();
 
         $resultSet[] = $workLog;
 
