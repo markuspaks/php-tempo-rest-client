@@ -32,7 +32,7 @@ class WorkLog implements \JsonSerializable, DataModel
     /** @var string */
     public $startTime;
 
-    /** @var string */
+    /** @var string|null */
     public $description;
 
     /** @var \DateTime */
