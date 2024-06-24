@@ -1,6 +1,6 @@
 <?php
 
-namespace TempoRestApi\WorkLog;
+namespace TempoRestApi\Worklog;
 
 use TempoRestApi\ParametersInterface;
 

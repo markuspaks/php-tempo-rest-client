@@ -1,13 +1,13 @@
 <?php
 
-namespace TempoRestApi\WorkLog;
+namespace TempoRestApi\Worklog;
 
 use TempoRestApi\TempoClient;
 use TempoRestApi\TempoException;
 
 /**
  * Class WorkLogService
- * @package TempoRestApi\WorkLog
+ * @package TempoRestApi\Worklog
  */
 class WorkLogService extends TempoClient
 {
