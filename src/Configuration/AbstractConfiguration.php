@@ -8,6 +8,13 @@ namespace TempoRestApi\Configuration;
 abstract class AbstractConfiguration implements ConfigurationInterface
 {
     /**
+     * Tempo API url
+     *
+     * @var string
+     */
+    protected $tempoApiUrl = 'https://api.tempo.io/core/3/';
+
+    /**
      * Authorization type [token or oauth2]
      *
      * @var string
@@ -111,6 +118,14 @@ abstract class AbstractConfiguration implements ConfigurationInterface
      * @var bool
      */
     protected $curlOptVerbose;
+
+    /**
+     * @return string
+     */
+    public function getTempoApiUrl(): string
+    {
+        return $this->tempoApiUrl;
+    }
 
     /**
      * @return string

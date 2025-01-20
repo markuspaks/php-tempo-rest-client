@@ -59,13 +59,6 @@ class TempoClient
     protected $configuration;
 
     /**
-     * Base TEMPO API url
-     *
-     * @var string
-     */
-    protected $tempoApiUrl = 'https://api.tempo.io/core/3/';
-
-    /**
      * Constructor.
      *
      * @param ConfigurationInterface $configuration

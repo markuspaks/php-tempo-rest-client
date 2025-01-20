@@ -8,6 +8,13 @@ namespace TempoRestApi\Configuration;
 interface ConfigurationInterface
 {
     /**
+     * Tempo API url
+     *
+     * @return string
+     */
+    public function getTempoApiUrl(): string;
+
+    /**
      * Authorization type [token or oauth2]
      *
      * @return string

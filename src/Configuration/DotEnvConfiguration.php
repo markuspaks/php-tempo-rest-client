@@ -17,6 +17,8 @@ class DotEnvConfiguration extends AbstractConfiguration
     {
         $this->loadDotEnv($path);
 
+        $this->tempoApiUrl = $this->env('TEMPO_API_URL');
+
         $this->tempoAuthType = $this->env('TEMPO_AUTH_TYPE');
 
         $this->tempoToken = $this->env('TEMPO_TOKEN');

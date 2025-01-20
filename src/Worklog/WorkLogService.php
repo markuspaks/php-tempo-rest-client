@@ -20,7 +20,7 @@ class WorkLogService extends TempoClient
      */
     public function get(int $workLogId)
     {
-        $url = $this->tempoApiUrl . "worklogs/{$workLogId}";
+        $url = $this->configuration->getTempoApiUrl() . "worklogs/{$workLogId}";
 
         try {
             $data = $this->request($url);
@@ -47,7 +47,7 @@ class WorkLogService extends TempoClient
     {
         $workLogs = new WorkLogResultSet($this);
 
-        $url = $this->tempoApiUrl . "worklogs?" . $parameters->getHttpQuery();
+        $url = $this->configuration->getTempoApiUrl() . "worklogs?" . $parameters->getHttpQuery();
 
         return $workLogs->request($url);
     }
@@ -61,7 +61,7 @@ class WorkLogService extends TempoClient
      */
     public function create(WorkLogCreateParameters $parameters): WorkLog
     {
-        $url = $this->tempoApiUrl . "worklogs";
+        $url = $this->configuration->getTempoApiUrl() . "worklogs";
 
         $result = $this->request($url, $parameters->getPostParams(), 'POST');
 
