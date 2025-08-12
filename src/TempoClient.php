@@ -146,7 +146,16 @@ class TempoClient
     private function convertLogLevel($log_level)
     {
         $log_level = strtoupper($log_level);
-        $levels = Logger::getLevels();
+        $levels = [
+            'EMERGENCY' => Logger::EMERGENCY,
+            'ALERT'     => Logger::ALERT,
+            'CRITICAL'  => Logger::CRITICAL,
+            'ERROR'     => Logger::ERROR,
+            'WARNING'   => Logger::WARNING,
+            'NOTICE'    => Logger::NOTICE,
+            'INFO'      => Logger::INFO,
+            'DEBUG'     => Logger::DEBUG,
+        ];
 
         return $levels[$log_level] ?? Logger::WARNING;
     }
